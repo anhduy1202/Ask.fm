@@ -4,9 +4,9 @@ const app = express();
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const helmet = require("helmet");
-const mysql = require("mysql");
 var bodyParser = require("body-parser");
-const userRoute = require("./routes/userRoute");
+const authRoute = require("./routes/authRoute");
+const questionRoute = require("./routes/questionRoute");
 
 dotenv.config();
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -22,7 +22,8 @@ app.use(helmet());
 app.use(morgan("common"));
 
 //Routes
-app.use("/v1/auth",userRoute)
+app.use("/v1/auth", authRoute);
+app.use("/v1/question", questionRoute);
 
 app.listen(8000, () => {
   console.log("Server is running");

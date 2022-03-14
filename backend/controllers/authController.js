@@ -1,7 +1,21 @@
 var db = require("../database");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const authController = {
+  //GENERATE TOKEN
+  generateToken: (user) => {
+    return jwt.sign(
+      {
+        id: user.id,
+      },
+      process.env.TOKEN,
+      { expiresIn: "365d" }
+    );
+  },
   //REGISTER
   registerUser: async (req, res) => {
     const email = req.body.email;
@@ -47,7 +61,13 @@ const authController = {
             if (!validPassword) {
               res.status(404).send("Incorrect password");
             } else {
-              res.status(200).send(results);
+              //generate token
+              const token = authController.generateToken(results[0]);
+              const userWithToken = {
+                ...results[0],
+                token: token
+              };
+              res.status(200).send(userWithToken);
             }
           } else {
             res.status(404).send("Email doesn't exist");
