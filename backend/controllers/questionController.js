@@ -67,22 +67,16 @@ const questionController = {
   getOneQuestion: (req, res) => {
     const id = req.params.questionId;
     try {
-      middlewareController.verifyToken(req, res, () => {
-        if (req.user.id == userId) {
-          db.query(
-            "SELECT content, time FROM question WHERE id = ?",
-            [id],
-            (err, results) => {
-              if (err) {
-                res.status(500).send(err);
-              }
-              res.status(200).send(results);
-            }
-          );
-        } else {
-          res.status(403).send("You're not allowed to do that");
+      db.query(
+        "SELECT content, time FROM question WHERE id = ?",
+        [id],
+        (err, results) => {
+          if (err) {
+            res.status(500).send(err);
+          }
+          res.status(200).send(results);
         }
-      });
+      );
     } catch (err) {
       return res.status(500).send(err);
     }

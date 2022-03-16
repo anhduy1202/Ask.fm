@@ -1,0 +1,12 @@
+.navbar > a  {
+    text-decoration: none;
+}
+
+.location- {
+    color:black;
+}
+
+.location-active {
+    font-weight: var(--font-semi-bold);
+    color: var( --color-md-blue);
+}

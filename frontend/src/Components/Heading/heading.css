@@ -1,0 +1,12 @@
+.heading-h1 {
+    font-size: var(--font-xlg);
+    font-weight: var(--font-semibold);
+}
+.heading-h2 {
+    font-size: var(--font-lg);
+    font-weight: var(--font-semibold);
+}
+.heading-subtitle {
+    font-size: var(--font-smd);
+    font-weight: var(--font-smbold);
+}
