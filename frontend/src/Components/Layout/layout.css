@@ -9,7 +9,8 @@
 .dashboard-container {
     margin: 2em 0;
     background-color: var(--color-light-blue);
-    min-width: 80%;
+    min-width:100%;
+    border-radius: var(--border-rounded);
     min-height: 70vh ;
     padding: 2em;
 }

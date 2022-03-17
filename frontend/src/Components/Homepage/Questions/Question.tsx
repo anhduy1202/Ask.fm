@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { IQuestion } from "../HomePage";
+import {format} from "timeago.js";
 
 interface IProps {
   question: IQuestion;
@@ -9,8 +11,14 @@ const Question: React.FC<IProps> = (props) => {
   const { time, id, name, receiveId, content, answer, answered } = question;
   return (
     <>
-      <div className="quesiton-content">Q: {content}</div>
-      <div className="qeustion-author">{name}</div>
+      <div className="question-box">
+        <div className="question-content">Q: {content}</div>
+        <Link className="question-author" to={`/profile/${receiveId}`}>
+          {name}
+        </Link>
+      </div>
+      <div className="question-answer">A: {answer}</div>
+      <div className="question-time"> {format(`${time}`)} </div>
     </>
   );
 };

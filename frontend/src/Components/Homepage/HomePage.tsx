@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
 import "./homepage.css";
 import Question from "./Questions/Question";
-import axios from "axios";
 import useFetchQuestions from "../../Hook/useFetchQuestions";
+import { useDispatch } from "react-redux";
+import { setFullPost } from "../../redux/navSlice";
 
 export interface IQuestion {
   id: Number;
@@ -16,15 +17,23 @@ export interface IQuestion {
 }
 
 const HomePage: React.FC = () => {
-    const [responses, isError, isLoading] = useFetchQuestions<IQuestion>('v1/question',"");
- 
+  const [responses, isError, isLoading] = useFetchQuestions<IQuestion>(
+    "v1/question",
+    ""
+  );
+  const dispatch = useDispatch();
+  const openFullPost = () => {
+    dispatch(setFullPost(true));
+  }
+
   return (
     <Layout type={"home"}>
       <section className="home-container">
-        {responses?.map((responses,idx) => {
+        {isLoading && <div className=""> Loading questions...</div>}
+        {responses?.map((responses, idx) => {
           return (
-            <div key={idx} className="question-container">
-              <Question question={responses} />
+            <div key={idx} className="question-container" onClick={openFullPost}>
+                <Question question={responses} />
             </div>
           );
         })}

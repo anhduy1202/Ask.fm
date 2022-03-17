@@ -14,6 +14,7 @@
   --color-dark-green: #151924;
   --color-white: #f9f9f9;
   --color-light-blue: #6eb9e3;
+  --color-light-blue-hover: #378cbd;
   --color-md-blue: #0460c3;
 
   /* Border radius */
@@ -52,3 +53,4 @@ body {
   font-size: var(--font-md);
   font-family: var(--font-poppins);
 }
+

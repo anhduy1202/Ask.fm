@@ -26,7 +26,7 @@ const questionController = {
   getAllQuestions: (req, res) => {
     try {
       db.query(
-        "SELECT question.id, user.name, content,time, answered, answer FROM `ask.me`.question  LEFT JOIN `ask.me`.user ON question.receiveId = user.id WHERE question.answered = 1;",
+        "SELECT question.id, question.receiveId, user.name, content,time, answered, answer FROM `ask.me`.question  LEFT JOIN `ask.me`.user ON question.receiveId = user.id WHERE question.answered = 1;",
         (err, results) => {
           if (err) res.status(500).send(err);
           return res.status(200).send(results);

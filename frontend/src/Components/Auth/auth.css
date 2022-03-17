@@ -1,0 +1,42 @@
+.auth-layout {
+    margin-top: 1em;
+    background-color: var(--color-light-blue);
+    min-width: 80%;
+    border-radius: var(--border-rounded);
+    min-height: 400px;
+}
+.auth-container{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+    font-weight: var(--font-semibold);
+}
+.login-heading, .home-heading {
+    border-radius: var(--border-rounded);
+    transition: 200ms ease-in-out;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.45em;
+    background-color: var(--color-light-blue);
+}
+.login-heading:hover, .home-heading:hover {
+    background-color: var(--color-light-blue-hover);
+}
+
+
+.login-title {
+    margin-top: 1em;
+    text-align: center;
+    font-size: var(--font-lg);
+    font-weight: var(--font-semibold);
+}
+
+.auth-form {
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
