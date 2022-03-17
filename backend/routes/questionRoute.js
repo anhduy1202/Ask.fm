@@ -11,6 +11,10 @@ route.post(
   questionController.createQuestion
 );
 
+
+//GET ALL ANSWERED QUESTIONS AVAILABLE 
+route.get("/", questionController.getAllQuestions);
+
 //GET ALL QUESTIONS FROM ONE USER
 /* Anyone can see the answered question */
 route.get("/:userId", questionController.getAllFromOne);

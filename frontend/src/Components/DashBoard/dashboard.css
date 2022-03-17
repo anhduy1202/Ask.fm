@@ -4,9 +4,11 @@
 
 .location- {
     color:black;
+    margin-right: 1em;
 }
 
 .location-active {
+    margin-right: 1em;
     font-weight: var(--font-semi-bold);
     color: var( --color-md-blue);
 }

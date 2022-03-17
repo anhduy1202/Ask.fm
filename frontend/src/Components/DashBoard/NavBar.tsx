@@ -4,17 +4,24 @@ import "./dashboard.css";
 
 const NavBar: React.FC = () => {
     const location = useLocation();
+    const routes: {name:String, path:String}[] = [
+        {name: "All", path:"/"},
+        {name: "Answered Questions", path: "/answered"},
+        {name: "Unanswered Questions", path:"/unanswered"}
+    ];
     const [pathName,setPathName] = useState(location.pathname);
     useEffect(()=>{
         setPathName(location.pathname);
     },[location])
     return (
     <nav className='navbar'>
-        <Link to="/" className={`location-${pathName == "/" ? "active": ""}`}> All  </Link>
-        <span> / </span>
-        <Link to ="/answered" className={`location-${pathName == "/answered" ? "active": ""}`}> Answered Questions </Link>
-        <span> / </span>
-        <Link to ="/unanswered" className={`location-${pathName == "/unanswered" ? "active": ""}`}> Unanswered Questions </Link>
+        {routes.map((route)=>{
+            return (
+                <>
+                <Link to = {`${route.path}`} className={`location-${pathName == `${route.path}` ? "active": ""}`}> {route.name} </Link>
+                </>
+            )
+        })}
     </nav>
   )
 }

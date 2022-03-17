@@ -22,6 +22,21 @@ const questionController = {
     }
   },
 
+  //GET ALL AVAILABLE ANSWERED QUESTION
+  getAllQuestions: (req, res) => {
+    try {
+      db.query(
+        "SELECT question.id, user.name, content,time, answered, answer FROM `ask.me`.question  LEFT JOIN `ask.me`.user ON question.receiveId = user.id WHERE question.answered = 1;",
+        (err, results) => {
+          if (err) res.status(500).send(err);
+          return res.status(200).send(results);
+        }
+      );
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  },
+
   //GET ALL QUESTIONS FROM A USER
   /*
   Note: Only get answered question for guest user

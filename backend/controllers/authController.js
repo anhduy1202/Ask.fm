@@ -18,6 +18,7 @@ const authController = {
   },
   //REGISTER
   registerUser: async (req, res) => {
+    const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
     try {
@@ -26,8 +27,8 @@ const authController = {
       const hashed = await bcrypt.hash(password, salt);
       //Create new user
       db.query(
-        "INSERT INTO user (email, password) VALUES (?,?);",
-        [email, hashed],
+        "INSERT INTO user (email, password, name) VALUES (?,?,?);",
+        [email, hashed, name],
         (err, results) => {
           if (err) {
             res.status(500).send(err);

@@ -1,5 +1,6 @@
 .homepage-container {
-    padding: 1.5rem;
+    padding: 2em;
+    margin: 0 10em;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -10,5 +11,5 @@
     background-color: var(--color-light-blue);
     min-width: 80%;
     min-height: 70vh ;
-    padding: 1em;
+    padding: 2em;
 }

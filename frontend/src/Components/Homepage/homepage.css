@@ -1,0 +1,14 @@
+.home-container {
+    margin-top: 1em;
+    font-weight: var(--font-semibold);
+    align-self: flex-start;
+    min-width: 100%;
+}
+
+.question-container {
+    cursor: pointer;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: var(--border-rounded);
+    background-color: var(--color-light-blue);
+}
