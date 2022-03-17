@@ -16,7 +16,7 @@ export interface IQuestion {
 }
 
 const HomePage: React.FC = () => {
-    const [responses, isError, isLoading] = useFetchQuestions<IQuestion>('v1/question');
+    const [responses, isError, isLoading] = useFetchQuestions<IQuestion>('v1/question',"");
  
   return (
     <Layout type={"home"}>
